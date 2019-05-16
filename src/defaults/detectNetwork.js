@@ -10,9 +10,9 @@ const handle = (callback, online) => {
 };
 
 export default callback => {
-  if (typeof window !== 'undefined' && window.addEventListener) {
-    window.addEventListener('online', () => handle(callback, true));
-    window.addEventListener('offline', () => handle(callback, false));
+  if (typeof document !== 'undefined' && document.addEventListener) {
+    document.addEventListener('online', () => handle(callback, true));
+    document.addEventListener('offline', () => handle(callback, false));
     handle(callback, window.navigator.onLine);
   }
 };
