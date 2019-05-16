@@ -10,7 +10,7 @@ const handle = (callback, online) => {
 };
 
 export default callback => {
-  if (typeof window !== 'undefined' && window.addEventListener) {
+  if (typeof document !== 'undefined' && document.addEventListener) {
     document.addEventListener('online', () => handle(callback, true));
     document.addEventListener('offline', () => handle(callback, false));
     handle(callback, window.navigator.onLine);
